@@ -54,7 +54,7 @@ new Vue({
          * return 1560490905528
          */
         subURL() {
-            return window.location.pathname.substring(window.location.pathname.indexOf('/') + 1, window.location.pathname.lastIndexOf('/'))
+            return window.location.pathname.substring(window.location.pathname.indexOf('/') + 10, window.location.pathname.lastIndexOf('/'))
         },
 
         init() {
@@ -105,7 +105,7 @@ new Vue({
             //接收到消息时回调
             this.websocket.onmessage = function (event) {
                 $this.clean()
-                let entity = JSON.parse(event.data);
+                let entity = JSON.parse(event.data)
 
                 //上线提醒
                 if (entity.data == undefined) {
@@ -114,6 +114,9 @@ new Vue({
                     $this.scroll()
                     return;
                 }
+
+                //消息提醒
+                $this._notify('提醒', entity.data.from.name+'发来新消息', 'success')
 
                 //消息接收
                 let data = JSON.parse(event.data).data
@@ -186,7 +189,7 @@ new Vue({
         logout() {
             this.$http.delete(api.logout(this.form.id)).then(response => {
                 this.websocket.close()
-                window.location.href = "/"
+                window.location.href = "/bootchat"
             })
         },
 

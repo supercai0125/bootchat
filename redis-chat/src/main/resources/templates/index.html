@@ -15,7 +15,7 @@
             </svg>
         </div>
     </div>
-    <div role="alert" class="el-notification left" style="top: 16px; z-index: 2000;">
+    <div role="alert" class="el-notification left" style="top: 16px; z-index: 2000;width: 250px">
         <i class="el-notification__icon el-icon-success"></i>
         <div class="el-notification__group is-with-icon">
             <h2 class="el-notification__title">系统信息</h2>
@@ -23,10 +23,7 @@
                 <p>
                     在线用户： {{online}}
                     <br>
-                    开源地址：<a href="https://github.com/TyCoding/boot-chat/" target="_blank">boot-chat</a>
-                    <br>
-                    作者：<a href="https://www.tycoding.cn/" target="_blank">https://www.tycoding.cn/</a>
-                    <br>
+                    作者：<a href="http://www.ercai.online:8080" target="_blank">coding by ercai</a>
                     <br>
                     <el-button @click="logout" style="float: right" size="mini" type="danger" plain>注销</el-button>
                 </p>
@@ -46,7 +43,7 @@
         <div class="list">
             <ul>
                 <li :class="{ active: current_window_id === 0 }" @click="selectWindow(0)">
-                    <img class="avatar" width="30" height="30" src="/avatar/group.png">
+                    <img class="avatar" width="30" height="30" src="/bootchat/avatar/group.png">
                     <p class="name">官方群组</p>
                 </li>
                 <li v-for="item in userList" v-if="item.id != form.id" :class="{ active: current_window_id === item.id }"
