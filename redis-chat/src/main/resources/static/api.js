@@ -39,7 +39,7 @@ let api = {
      * WebSocket服务器链接接口
      */
     websocket(id) {
-        return 'ws://www.ercai.online:8082/bootchat/chat/' + id
+        return 'ws://www.chaoyouka.xyz:8082/bootchat/chat/' + id
     },
 
     /**
